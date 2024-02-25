@@ -4,400 +4,206 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polyrhythmic Spiral Effect</title>
+  <title>Parallax Menu Effect</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    html, body {
-  height: 100vh;
-  background-color: black;
-  overflow: hidden;
-  font-family: "Noto Sans", sans-serif;
+    body {
+  background-color: rgb(20, 20, 20);
+  margin: 0px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-canvas {
+#menu {  
+  align-items: center;
+  display: flex;
   height: 100vh;
   width: 100vw;
+}
+
+#menu-items {
+  margin-left: clamp(4rem, 20vw, 48rem);
   position: relative;
-  z-index: 9;
-}
-
-#logo {
-  display: flex;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 4;
-  opacity: 0.08;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-#logo > img {
-  height: 3.2vmin;
-}
-
-#background-image,
-#background-filter {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-}
-  
-#background-image {
-  z-index: 1;
-  background-image: url("https://assets.codepen.io/1468070/Lofi+Rainy+Loft+Interior.jpg?format=webp&quality=90");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.6;
-  filter: blur(4px) grayscale(30%);
-}
-
-#background-filter {
   z-index: 2;
-  background: radial-gradient(rgb(0 0 0 / 60%) 50%, transparent);
 }
 
-#control-bar-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 0px;
+#menu[data-active-index="0"] > #menu-background-pattern {
+  background-position: 0% -25%;
+}
+
+#menu[data-active-index="1"] > #menu-background-pattern {
+  background-position: 0% -50%;
+}
+
+#menu[data-active-index="2"] > #menu-background-pattern {
+  background-position: 0% -75%;
+}
+
+#menu[data-active-index="3"] > #menu-background-pattern {
+  background-position: 0% -100%;
+}
+
+#menu[data-active-index="0"] > #menu-background-image {
+  background-position: center 45%;
+}
+
+#menu[data-active-index="1"] > #menu-background-image {
+  background-position: center 50%;
+}
+
+#menu[data-active-index="2"] > #menu-background-image {
+  background-position: center 55%;
+}
+
+#menu[data-active-index="3"] > #menu-background-image {
+  background-position: center 60%;
+}
+
+#menu-background-pattern {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 9%, 
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 12vmin 12vmin;
+  height: 100vh;
   left: 0px;
-  z-index: 10;
-  padding: 0.5rem;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease, 
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 100vw;
+  z-index: 1;
 }
 
-.toggle {
-  background-color: rgb(255 255 255 / 10%);
-  backdrop-filter: blur(5px);
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  height: 2rem;
-  border: none;
-  outline: none;
+#menu-background-image {
+  background-image: url("https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
+  background-position: center 40%;
+  background-size: 110vmax;
+  height: 100%;
+  left: 0px;  
+  opacity: 0.15;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease,
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 100%;
+  z-index: 0;
+}
+
+#menu-items:hover ~ #menu-background-pattern {
+  background-size: 11vmin 11vmin;
+  opacity: 0.5;
+}
+
+#menu-items:hover ~ #menu-background-image {
+  background-size: 100vmax;
+  opacity: 0.1;
+}
+
+#menu-items:hover > .menu-item {
+  opacity: 0.3;
+}
+
+#menu-items:hover > .menu-item:hover {
+  opacity: 1; 
+}
+
+.menu-item {
+  color: white;
   cursor: pointer;
-}
-
-.toggle:is(:hover, :focus-visible) {
-  background-color: rgb(255 255 255 / 15%);
-}
-
-.toggle > i {
-  color: white;
-  display: none;
-  height: 1rem;
-  width: 1rem;
-  font-size: 0.6rem;
-  line-height: 1rem;
-  text-align: center;
-}
-
-.toggle[data-toggled="true"] > i.on {
   display: block;
+  font-family: 'Ibarra Real Nova', serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+  text-decoration: none;
+  transition: opacity 400ms ease;
 }
 
-.toggle[data-toggled="false"] > i.off {
-  display: block;
+/* -- YouTube Link Styles -- */
+
+body.menu-toggled > .meta-link > span {
+  color: rgb(30, 30, 30);
 }
 
-#sound-message {
+#source-link {
+  bottom: 60px;
+}
+
+#source-link > i {
+  color: rgb(94, 106, 210);
+}
+
+#yt-link > i {
+  color: rgb(239, 83, 80);
+}
+
+.meta-link {
+  align-items: center;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  bottom: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;  
+  display: inline-flex;
+  gap: 5px;
+  left: 10px;
+  padding: 10px 20px;
   position: fixed;
-  top: 36%;
-  left: 50%;
-  translate: -50% -50%;
-  z-index: 3;
-  padding: 0.75rem;
-  background-color: rgb(255 255 255 / 5%);
-  border-radius: 0.4rem;
-  transition: opacity 1000ms;
-  pointer-events: none;
+  text-decoration: none;
+  transition: background-color 400ms, border-color 400ms;
+  z-index: 10000;
 }
 
-body:has(#sound-toggle[data-toggled="true"]) #sound-message {
-  opacity: 0;
+.meta-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-#sound-message > p {
+.meta-link > i, .meta-link > span {
+  height: 20px;
+  line-height: 20px;
+}
+
+.meta-link > span {
   color: white;
-  font-size: 0.9rem;
-  white-space: nowrap;
+  font-family: "Rubik", sans-serif;
 }
   </style>
 </head>
 <body>
-    <div id="control-bar-wrapper">
-        <div id="control-bar">
-          <button id="sound-toggle" class="toggle" type="button" data-toggled="false" onClick="handleSoundToggle()" title="Toggle Pulse">
-            <i class="fa-solid fa-music-slash off"></i>
-            <i class="fa-solid fa-music on"></i>
-          </button>
+    <div id="menu">
+        <div id="menu-items">
+          <!-- I made these divs instead of links so you can click on mobile to view the effect -->
+          <div class="menu-item">Home</div>
+          <div class="menu-item">Shop</div>
+          <div class="menu-item">About</div>
+          <div class="menu-item">Contact Us</div>
         </div>
+        <div id="menu-background-pattern"></div>
+        <div id="menu-background-image"></div>
       </div>
       
-      <div id="background-image"></div>
+      <a id="source-link" class="meta-link" href="http://dnacapital.com" target="_blank">
+        <i class="fa-solid fa-link"></i>
+        <span>Source</span>
+      </a>
       
-      <div id="background-filter"></div>
-      
-      <div id="logo">
-        <img src="https://assets.codepen.io/1468070/Hyperplexed+Logo+-+White.png" alt="" />
-      </div>
-      
-      <div id="sound-message">
-        <p>Click anywhere to toggle sound</p>
-      </div>
-      
-      <canvas id="paper"></canvas>
+      <a id="yt-link" class="meta-link" href="https://youtu.be/NUeCNvYY_x4" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+        <span>2.5 min tutorial</span>
+      </a>
   <script>
-    /*
-  --- README ---
-  
-  This polyrhythmic (definition below) spiral effect was inspired by the awesome work of @project_jdm on YouTube.
-  
-  It was created from scratch with plain old js on the canvas. I basically just reverse engineered the one in his video here (https://youtu.be/4GaGnU8Ij2Y) to the best of my ability and then kinda morphed it into my own thing. It took a long freakin time.
-  
-  I didn't know what polyrhythms were before seeing his content so I had to ask ChatGPT. I then had to ask ChatGPT again, but this time to explain like I'm 5 years old. Here is what it said:
+    const menu = document.getElementById("menu");
 
-  You know when you're on a swing? Imagine there are two swings side by side. Your friend is swinging three times for every two times you swing. So, sometimes you're at the top together, but other times, you're not. When you're both at the top at the same time, that's like a polyrhythm in music. Two different beats, syncing up at special moments.
-  
-  Anyways, in the settings object below I have outlined a few different parameters to make it easier to modify some of the core features i.e. start time, total duration, number of cycles, etc.
-  
-  I didn't know a good way to get instrument sound effects, in particular multiple octaves worth, so I made my own on SoundTrap using the vibraphone. A couple other options are also listed below.
-  
-  If you want to get your hands dirty you can also take a whack at modifying the code. Just be careful messing with how the notes are played. I almost went deaf a few times lol. And feel free to use this for literally anything.
-  
-*/
-
-const paper = document.getElementById("paper"),
-      pen = paper.getContext("2d");
-
-const get = selector => document.querySelector(selector);
-
-const toggles = {
-  sound: get("#sound-toggle")
-}
-
-// Use whatever colors you want
-// https://unsplash.com/photos/tZCrFpSNiIQ
-// const colors = [
-//   "#D0E7F5",
-//   "#D9E7F4",
-//   "#D6E3F4",
-//   "#BCDFF5",
-//   "#B7D9F4",
-//   "#C3D4F0",
-//   "#9DC1F3",
-//   "#9AA9F4",
-//   "#8D83EF",
-//   "#AE69F0",
-//   "#D46FF1",
-//   "#DB5AE7",
-//   "#D911DA",
-//   "#D601CB",
-//   "#E713BF",
-//   "#F24CAE",
-//   "#FB79AB",
-//   "#FFB6C1",
-//   "#FED2CF",
-//   "#FDDFD5",
-//   "#FEDCD1"
-// ];
-// Here I'm using the same color for all 21 arcs
-const colors = Array(21).fill("#A6C48A");
-
-const settings = {
-  startTime: new Date().getTime(), // This can be in the future
-  duration: 900, // Total time for all dots to realign at the starting point
-  maxCycles: Math.max(colors.length, 100), // Must be above colors.length or else...
-  soundEnabled: false, // User still must interact with screen first
-  pulseEnabled: true, // Pulse will only show if sound is enabled as well
-  instrument: "vibraphone" // "default" | "wave" | "vibraphone"
-}
-
-const handleSoundToggle = (enabled = !settings.soundEnabled) => {  
-  settings.soundEnabled = enabled;
-  toggles.sound.dataset.toggled = enabled;
-}
-
-document.onvisibilitychange = () => handleSoundToggle(false);
-
-paper.onclick = () => handleSoundToggle();
-
-const getFileName = index => {
-  if(settings.instrument === "default") return `key-${index}`; 
-  
-  return `${settings.instrument}-key-${index}`;
-}
- 
-const getUrl = index => `https://assets.codepen.io/1468070/${getFileName(index)}.wav`;
-
-const keys = colors.map((color, index) => {
-  const audio = new Audio(getUrl(index));
-  
-  audio.volume = 0.15;
-  
-  return audio;
-});
-
-let arcs = [];
-
-const calculateVelocity = index => {  
-    const numberOfCycles = settings.maxCycles - index,
-          distancePerCycle = 2 * Math.PI;
-  
-  return (numberOfCycles * distancePerCycle) / settings.duration;
-}
-
-const calculateNextImpactTime = (currentImpactTime, velocity) => {
-  return currentImpactTime + (Math.PI / velocity) * 1000;
-}
-
-const calculateDynamicOpacity = (currentTime, lastImpactTime, baseOpacity, maxOpacity, duration) => {
-  const timeSinceImpact = currentTime - lastImpactTime,
-        percentage = Math.min(timeSinceImpact / duration, 1),
-        opacityDelta = maxOpacity - baseOpacity;
-  
-  return maxOpacity - (opacityDelta * percentage);
-}
-
-const determineOpacity = (currentTime, lastImpactTime, baseOpacity, maxOpacity, duration) => {
-  if(!settings.pulseEnabled) return baseOpacity;
-  
-  return calculateDynamicOpacity(currentTime, lastImpactTime, baseOpacity, maxOpacity, duration);
-}
-
-const calculatePositionOnArc = (center, radius, angle) => ({
-  x: center.x + radius * Math.cos(angle),
-  y: center.y + radius * Math.sin(angle)
-});
-
-const playKey = index => keys[index].play();
-
-const init = () => {
-  pen.lineCap = "round";
-
-  arcs = colors.map((color, index) => {
-    const velocity = calculateVelocity(index),
-          lastImpactTime = 0,
-          nextImpactTime = calculateNextImpactTime(settings.startTime, velocity);
-
-    return {
-      color,
-      velocity,
-      lastImpactTime,
-      nextImpactTime
-    }
-  });
-}
-
-const drawArc = (x, y, radius, start, end, action = "stroke") => {
-  pen.beginPath();
-  
-  pen.arc(x, y, radius, start, end);
-  
-  if(action === "stroke") pen.stroke();    
-  else pen.fill();
-}
-
-const drawPointOnArc = (center, arcRadius, pointRadius, angle) => {
-  const position = calculatePositionOnArc(center, arcRadius, angle);
-
-  drawArc(position.x, position.y, pointRadius, 0, 2 * Math.PI, "fill");    
-}
-
-const draw = () => { // Definitely not optimized
-  paper.width = paper.clientWidth;
-  paper.height = paper.clientHeight;
-
-  const currentTime = new Date().getTime(),
-        elapsedTime = (currentTime - settings.startTime) / 1000;
-  
-  const length = Math.min(paper.width, paper.height) * 0.9,
-        offset = (paper.width - length) / 2;
-  
-  const start = {
-    x: offset,
-    y: paper.height / 2
-  }
-
-  const end = {
-    x: paper.width - offset,
-    y: paper.height / 2
-  }
-
-  const center = {
-    x: paper.width / 2,
-    y: paper.height / 2
-  }
-
-  const base = {
-    length: end.x - start.x,
-    minAngle: 0,
-    startAngle: 0,
-    maxAngle: 2 * Math.PI
-  }
-
-  base.initialRadius = base.length * 0.05;
-  base.circleRadius = base.length * 0.006;
-  base.clearance = base.length * 0.03;
-  base.spacing = (base.length - base.initialRadius - base.clearance) / 2 / colors.length;
-
-  arcs.forEach((arc, index) => {
-    const radius = base.initialRadius + (base.spacing * index);
-
-    // Draw arcs
-    pen.globalAlpha = determineOpacity(currentTime, arc.lastImpactTime, 0.15, 0.65, 1000);
-    pen.lineWidth = base.length * 0.002;
-    pen.strokeStyle = arc.color;
-    
-    const offset = base.circleRadius * (5 / 3) / radius;
-    
-    drawArc(center.x, center.y, radius, Math.PI + offset, (2 * Math.PI) - offset);
-    
-    drawArc(center.x, center.y, radius, offset, Math.PI - offset);
-    
-    // Draw impact points
-    pen.globalAlpha = determineOpacity(currentTime, arc.lastImpactTime, 0.15, 0.85, 1000);
-    pen.fillStyle = arc.color;
-    
-    drawPointOnArc(center, radius, base.circleRadius * 0.75, Math.PI);
-    
-    drawPointOnArc(center, radius, base.circleRadius * 0.75, 2 * Math.PI);
-    
-    // Draw moving circles
-    pen.globalAlpha = 1;
-    pen.fillStyle = arc.color;
-    
-    if(currentTime >= arc.nextImpactTime) {      
-      if(settings.soundEnabled) {
-        playKey(index);
-        arc.lastImpactTime = arc.nextImpactTime;
-      }
-      
-      arc.nextImpactTime = calculateNextImpactTime(arc.nextImpactTime, arc.velocity);      
-    }
-    
-    const distance = elapsedTime >= 0 ? (elapsedTime * arc.velocity) : 0,
-          angle = (Math.PI + distance) % base.maxAngle;
-    
-    drawPointOnArc(center, radius, base.circleRadius, angle);
-  });
-  
-  requestAnimationFrame(draw);
-}
-
-init();
-
-draw();
+    Array.from(document.getElementsByClassName("menu-item"))
+    .forEach((item, index) => {
+        item.onmouseover = () => {
+        menu.dataset.activeIndex = index;
+        }
+    });
   </script>
 </body>
 </html>
