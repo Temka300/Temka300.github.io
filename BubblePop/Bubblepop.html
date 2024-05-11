@@ -4,43 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble Shooter Game</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #000000;
-        }
-        canvas {
-            background-color: #251d1d;
-            display: block; /* Removes bottom margin/gap */
-            border: 1px solid #ccc;
-        }
-        #optionsPanel {
-            position: absolute;
-            right: -250px; /* Adjust this value to ensure it's fully off-screen */
-            top: 0;
-            width: 200px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px;
-            transition: right 0.5s; /* Smooth transition for sliding effect */
-        }
-
-        .input-group {
-            display: flex;
-            justify-content: space-between;
-        }
-        .input-group div {
-            flex: 1;
-            padding: 5px;
-        }
-        input[type="number"] {
-            width: 100%; /* Make inputs take up all available space in their parent container */
-        }
-    </style>
+    <link rel="stylesheet" href="bubblepop.css">
 </head>
 <body>
     <canvas id="gameCanvas"></canvas>
@@ -76,12 +40,13 @@
                 <input type="number" id="velocityMultiplier" value="1" step="0.1" min="0.1" max="5">
             </div>   
         </div>     
-        <button id="resetOptions">Reset</button>
+        <button id="resetOptions" class="button reset-button">Reset Game</button>
+
     </div>
-    <button id="toggleOptions" style="position: absolute; right: 0; top: 50%;">></button>
-    <div id="gameOverScreen" style="display:none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+    <button id="toggleOptions" class="button toggle-button" style="position: absolute; right: 0; top: 50%;">></button>
+    <div id="gameOverScreen" class="game-over-screen">
         <h1 id="gameOverMessage"></h1>
-        <button onclick="startGame()">Start Again</button>
+        <button class="button" onclick="startGame()">Start Again</button>
     </div>
     <script src="bubblepop.js"></script>
 </body>

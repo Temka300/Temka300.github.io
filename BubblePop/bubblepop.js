@@ -50,19 +50,10 @@ class Bubble {
     }
 }
 
-// this code is for making rare bug that shows black box on the right side of the screen
-document.addEventListener('DOMContentLoaded', function() {
-    var panel = document.getElementById('optionsPanel');
-    panel.style.right = '-230px'; // Make sure this matches the adjusted CSS
-    var toggleButton = document.getElementById('toggleOptions');
-    toggleButton.textContent = '>'; // Ensure the toggle button is set to '>'
-});
-
-
 document.getElementById('toggleOptions').addEventListener('click', function() {
     var panel = document.getElementById('optionsPanel');
     if (panel.style.right === '0px') {
-        panel.style.right = '-200px'; // Hide the panel
+        panel.style.right = '-210px'; // Hide the panel
         this.textContent = '>'; // Change button text to "more than" symbol
     } else {
         panel.style.right = '0px'; // Show the panel
@@ -89,7 +80,9 @@ document.getElementById('resetOptions').addEventListener('click', function() {
 
 // Update the setupBubbles function to use the input values for customization
 function setupBubbles() {
-    const initialBubbleCount = parseInt(document.getElementById('initialBubbles').value) + stage * parseInt(document.getElementById('additionalBubbles').value);
+    const baseBubbles = parseInt(document.getElementById('initialBubbles').value);
+    const additionalBubbles = parseInt(document.getElementById('additionalBubbles').value);
+    const initialBubbleCount = baseBubbles + ((stage - 1) * additionalBubbles);
     const minRadius = parseInt(document.getElementById('minRadius').value);
     const maxRadius = parseInt(document.getElementById('maxRadius').value);
     const velocityMultiplier = parseFloat(document.getElementById('velocityMultiplier').value); // Ensure this exists from previous steps
