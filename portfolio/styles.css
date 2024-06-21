@@ -74,19 +74,3 @@ section {
     margin-bottom: 20px;
     border-radius: 5px;
 }
-
-.fun-links a {
-    display: block;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #007BFF;
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.fun-links a:hover {
-    background-color: #0056b3;
-}
