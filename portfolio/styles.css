@@ -2,12 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #2e3440;
+    color: #d8dee9;
 }
 
 header {
-    background-color: #333;
+    background-color: #3b4252;
     color: white;
     padding: 1em 0;
 }
@@ -52,11 +52,15 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #444;
+    background-color: #57637a;
 }
 
 nav a.active {
-    background-color: #555;
+    background-color: #4c566a;
+}
+
+nav a.active:hover {
+    background-color: #57637a; /* Ensure active links also show hover color */
 }
 
 .container {
@@ -65,7 +69,7 @@ nav a.active {
 }
 
 section {
-    background-color: white;
+    background-color: #3b4252;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
