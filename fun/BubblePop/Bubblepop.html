@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Shooter Game</title>
+    <link rel="stylesheet" href="bubblepop.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="optionsPanel">
+        <h3>Game Options</h3>
+        <div class="input-group">
+            <div>
+                <label for="initialBubbles">Bubbles:</label>
+                <input type="number" id="initialBubbles" value="5">
+            </div>
+            <div>
+                <label for="additionalBubbles">+ Bubbles:</label>
+                <input type="number" id="additionalBubbles" value="2">
+            </div>
+        </div>
+        <div class="input-group">
+            <div>
+                <label for="minRadius">Min Size:</label>
+                <input type="number" id="minRadius" value="30" step="1" min="10" max="50">
+            </div>
+            <div>
+                <label for="maxRadius">Max Size:</label>
+                <input type="number" id="maxRadius" value="50" step="1" min="20" max="100">
+            </div>
+        </div>
+        <div class="input-group">
+            <div>
+                <label for="stageTime">Stage Timer:</label>
+                <input type="number" id="stageTime" value="10">
+            </div>
+            <div>
+                <label for="velocityMultiplier">Velocity</label>
+                <input type="number" id="velocityMultiplier" value="1" step="0.1" min="0.1" max="5">
+            </div>   
+        </div>     
+        <button id="resetOptions" class="button reset-button">Reset Game</button>
+
+    </div>
+    <button id="toggleOptions" class="button toggle-button" style="position: absolute; right: 0; top: 50%;">></button>
+    <div id="gameOverScreen" class="game-over-screen">
+        <h1 id="gameOverMessage"></h1>
+        <button class="button" onclick="startGame()">Start Again</button>
+    </div>
+    <script src="bubblepop.js"></script>
+</body>
+</html>

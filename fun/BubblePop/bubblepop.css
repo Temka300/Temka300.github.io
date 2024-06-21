@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000;
+}
+canvas {
+    background-color: #251d1d;
+    display: block; /* Removes bottom margin/gap */
+    border: 1px solid #ccc;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.toggle-button {
+    background-color: #555; /* Darker background for the toggle */
+}
+
+.game-over-screen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.reset-button {
+    background-color: #555; /* Tomato red for visibility */
+    border-radius: 1px;
+    box-shadow: 0 2px #999;
+}
+
+.reset-button:hover {
+    background-color: #45a049;
+}
+
+.reset-button:active {
+    background-color: #45a049;
+    box-shadow: 0 2px #666;
+}
+
+
+#optionsPanel {
+    position: fixed; /* Changed from absolute to fixed to keep the panel relative to the viewport */
+    right: -250px; /* Same as before, ensure it's completely off-screen */
+    top: 0;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    transition: right 0.5s; /* Smooth transition for sliding effect */
+    border-radius: 0 0 0 5px; /* Rounded corners on the left bottom side */
+    overflow: hidden; /* Prevents any part of the panel from causing scroll bars */
+}
+
+
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+}
+.input-group div {
+    flex: 1;
+    padding: 5px;
+}
+input[type="number"] {
+    width: 100%; /* Make inputs take up all available space in their parent container */
+}
