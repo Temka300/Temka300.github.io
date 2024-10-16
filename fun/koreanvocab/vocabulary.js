@@ -1,10 +1,9 @@
 // DOM elements
 const wordDisplay = document.getElementById('word-display');
 const answerInput = document.getElementById('answer-input');
-const submitBtn = document.getElementById('submit-btn');
+const submitNextBtn = document.getElementById('submit-btn'); // Renamed to submitNextBtn to handle both Submit and Next actions
 const resultDiv = document.getElementById('result');
 const wrongDiv = document.getElementById('wrong');
-const nextBtn = document.getElementById('next-btn');
 const questionLanguageSelect = document.getElementById('question-language');
 
 let words = []; // This will hold the words from the JSON file
@@ -49,10 +48,28 @@ function displayWord() {
     }
 }
 
-// Check the answer
+const scoreDisplay = document.getElementById('score');
+let score = 0; // Initialize score
+
+// Update the word on the screen based on the selected language
+function displayWord() {
+    if (words.length > 0) {
+        const currentWord = words[currentWordIndex];
+        console.log("Current Word:", currentWord);
+        if (currentWord && currentWord[selectedLanguage]) {
+            wordDisplay.textContent = currentWord[selectedLanguage];
+        } else {
+            console.error("Selected language or current word is not available.");
+        }
+    } else {
+        console.error("Words array is empty.");
+    }
+}
+
+// Check the answer and handle button change
 function checkAnswer() {
     const currentWord = words[currentWordIndex];
-    
+
     // Ensure currentWord is defined
     if (!currentWord) {
         console.error('currentWord is undefined');
@@ -60,57 +77,69 @@ function checkAnswer() {
     }
 
     const answer = answerInput.value.trim().toLowerCase();
-    let correctAnswer;
+    let correctAnswers = [];
 
-    // Determine the correct answer based on the selected question language
+    // Determine the correct answers based on the selected question language
     if (selectedLanguage === 'Korean') {
-        correctAnswer = currentWord.English?.toLowerCase(); // Capitalized to match JSON
+        // If the question is in Korean, acceptable answers are English and Mongolian
+        if (currentWord.English) correctAnswers.push(currentWord.English.toLowerCase());
+        if (currentWord.Mongolia) correctAnswers.push(currentWord.Mongolia.toLowerCase());
     } else if (selectedLanguage === 'English') {
-        correctAnswer = currentWord.Korean?.toLowerCase();
+        // If the question is in English, acceptable answers are Korean and Mongolian
+        if (currentWord.Korean) correctAnswers.push(currentWord.Korean.toLowerCase());
+        if (currentWord.Mongolia) correctAnswers.push(currentWord.Mongolia.toLowerCase());
     } else if (selectedLanguage === 'Mongolia') {
-        correctAnswer = currentWord.English?.toLowerCase();
+        // If the question is in Mongolian, acceptable answers are Korean and English
+        if (currentWord.Korean) correctAnswers.push(currentWord.Korean.toLowerCase());
+        if (currentWord.English) correctAnswers.push(currentWord.English.toLowerCase());
     }
 
-    if (correctAnswer && answer === correctAnswer) {
+    // Check if the user's answer matches any of the correct answers
+    if (correctAnswers.includes(answer)) {
         resultDiv.textContent = `You did it! English: ${currentWord.English}, Mongolian: ${currentWord.Mongolia}, Japanese: ${currentWord.Japanese}`;
         wrongDiv.textContent = '';
-        nextBtn.style.display = 'block'; // Show next button
-        isCorrectAnswer = true; // Mark the answer as correct
+        isCorrectAnswer = true;
+        score++; // Increment the score on correct answer
     } else {
-        wrongDiv.textContent = 'Try again!';
+        wrongDiv.textContent = `Try again! English: ${currentWord.English}, Mongolian: ${currentWord.Mongolia}, Japanese: ${currentWord.Japanese}`;
         resultDiv.textContent = '';
-        isCorrectAnswer = false; // Mark the answer as incorrect
+        isCorrectAnswer = false;
+        score = 0; // Reset the score on wrong answer
     }
+
+    // Update the score display
+    scoreDisplay.textContent = score;
+
+    // Show the 'Next' button regardless of the result
+    submitNextBtn.textContent = 'Next';
 }
 
-// Move to the next word
+// Move to the next word and reset the button
 function nextWord() {
     currentWordIndex = (currentWordIndex + 1) % words.length;
     displayWord();
     resultDiv.textContent = '';
     wrongDiv.textContent = '';
     answerInput.value = '';
-    nextBtn.style.display = 'none';
     isCorrectAnswer = false; // Reset the correct answer flag
+
+    // Change the button back to 'Submit'
+    submitNextBtn.textContent = 'Submit';
 }
 
-// Event listeners
-submitBtn.addEventListener('click', checkAnswer);
-nextBtn.addEventListener('click', nextWord);
+// Handle button click (either check the answer or move to the next word)
+submitNextBtn.addEventListener('click', () => {
+    if (submitNextBtn.textContent === 'Submit') {
+        checkAnswer(); // If the button says 'Submit', check the answer
+    } else if (submitNextBtn.textContent === 'Next') {
+        nextWord(); // If the button says 'Next', load the next word
+    }
+});
+
+// Event listener for language selection change
 questionLanguageSelect.addEventListener('change', (e) => {
     selectedLanguage = e.target.value; // Ensure selected language matches JSON keys' case
     displayWord();
-});
-
-// Add event listener for "Enter" key
-answerInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        if (!isCorrectAnswer) {
-            checkAnswer(); // Simulate submit if answer is not correct
-        } else {
-            nextWord(); // Simulate next button if the answer was correct
-        }
-    }
 });
 
 // Load the JSON data when the page loads

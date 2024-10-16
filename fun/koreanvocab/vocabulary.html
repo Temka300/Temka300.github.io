@@ -4,54 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Quiz</title>
-    <style>
-        body {
-            background-color: #3b4252;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        #word-display {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: green;
-        }
-        #wrong {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: red;
-        }
-        #next-btn {
-            margin-top: 20px;
-            display: none;
-            padding: 10px;
-            font-size: 1em;
-        }
-    </style>
+    <link rel="stylesheet" href="/portfolio/styles.css"> <!-- Linking to the same stylesheet for consistency -->
+    <link rel="stylesheet" href="vocabulary.css">
 </head>
 <body>
-    <h1>Language Quiz</h1>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="/portfolio/image/logo.gif" alt="Logo">
+                <h1>Language Quiz</h1> <!-- Adjusted to fit the quiz context -->
+            </div>
+            <nav>
+                <a href="/index.html" class="active">Home</a>
+                <a href="/portfolio/projects.html">Projects</a>
+                <a href="/portfolio/posts.html">Posts</a>
+                <a href="/portfolio/portfolio.html">Portfolio</a>
+                <a href="/portfolio/fun.html">Fun</a>
+            </nav>
+        </div>
+    </header>
 
-    <label for="question-language">Select Question Language:</label>
-    <select id="question-language">
-        <option value="korean">Korean</option>
-        <option value="english">English</option>
-        <option value="mongolian">Mongolian</option>
-    </select>
-
-    <div id="word-display">Word will appear here</div>
-
-    <input type="text" id="answer-input" placeholder="Type your answer here" />
-    <button id="submit-btn">Submit</button>
-
-    <div id="result"></div>
-    <div id="wrong"></div>
-
-    <button id="next-btn">Next</button>
+    <div class="container">
+        <div class="score-counter">Score: <span id="score">0</span></div> <!-- Moved inside the container -->
+    
+        <section>
+            <h2>Language Quiz</h2>
+    
+            <label for="question-language">Select Question Language:</label>
+            <select id="question-language">
+                <option value="Korean">Korean</option>
+                <option value="English">English</option>
+                <option value="Mongolia">Mongolian</option>
+            </select>
+    
+            <div id="word-display">Word will appear here</div>
+    
+            <input type="text" id="answer-input" placeholder="Type your answer here" />
+            <button id="submit-btn">Submit</button>
+    
+            <div id="result"></div>
+            <div id="wrong"></div>
+    
+            <button id="next-btn">Next</button>
+        </section>
+    </div>
+    
 
     <script src="vocabulary.js"></script>
 </body>

@@ -1,77 +1,92 @@
-/* Set background colors to be easier on the eyes */
-body {
-    background-color: #2e3440;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-#game-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.rounded-box {
+.container {
     background-color: #3b4252;
-    color: #fff;
-    border-radius: 20px;
-    padding: 40px;
+    position: relative; /* Ensure the score counter is positioned relative to the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    width: 350px;  /* Increased size for left-right balance */
-    max-width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    margin: 10px 0;
-    font-size: 28px;
+.score-counter {
+    position: absolute; /* Absolute positioning relative to the container */
+    top: 10px; /* Align at the top */
+    right: 10px; /* Align at the right */
+    background-color: #2e3440;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
 }
 
-#language-options {
+section {
+    width: 100%; /* Adjusting width to 100% of the container */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+#word-display {
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    margin: 15px 0;
-    font-size: 18px;
-    border-radius: 10px;
-    border: none;
-}
-
-button {
-    background-color: #d8dee9;
-    color: #2e3440;
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100%; /* Full width for consistency */
-}
-
-#start-button, #retry-button, #next-button {
-    margin-top: 10px;
+#result, #wrong {
+    margin-top: 20px;
+    font-size: 1.5em;
 }
 
 #result {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-#result-icon {
-    font-size: 40px;
-}
-
-.correct {
     color: green;
 }
 
-.incorrect {
+#wrong {
     color: red;
+}
+
+#submit-btn {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit-btn:hover {
+    background-color: #0056b3;
+}
+
+#next-btn {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    width: 80%;
+}
+
+#next-btn:hover {
+    background-color: #0056b3;
+}
+
+select, input, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%; /* Make both buttons take full width of their container */
 }
