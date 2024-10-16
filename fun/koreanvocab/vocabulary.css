@@ -1,0 +1,77 @@
+/* Set background colors to be easier on the eyes */
+body {
+    background-color: #2e3440;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rounded-box {
+    background-color: #3b4252;
+    color: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    width: 350px;  /* Increased size for left-right balance */
+    max-width: 100%;
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 28px;
+}
+
+#language-options {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    background-color: #d8dee9;
+    color: #2e3440;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%; /* Full width for consistency */
+}
+
+#start-button, #retry-button, #next-button {
+    margin-top: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#result-icon {
+    font-size: 40px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
