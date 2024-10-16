@@ -2,7 +2,7 @@
     "words": [
         {
             "Korean": "한국 사람",
-            "English": "Korea person",
+            "English": "Korean person",
             "Japanese": "かんこくじん",
             "Kanji": "韓国人",
             "Mongolia": "солонгос хүн",
@@ -42,7 +42,7 @@
         },
         {
             "Korean": "태국 사람",
-            "English": "Thai person",
+            "English": "Thailand person",
             "Japanese": "たいじん",
             "Kanji": "タイ人",
             "Mongolia": "Тайланд хүн",
@@ -5802,7 +5802,7 @@
         },
         {
             "Korean": "배우",
-            "English": "Learn",
+            "English": "Actor",
             "Japanese": "---",
             "Kanji": "---",
             "Mongolia": "Жүжигчин",

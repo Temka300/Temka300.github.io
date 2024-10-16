@@ -10,19 +10,28 @@ const questionLanguageSelect = document.getElementById('question-language');
 let words = []; // This will hold the words from the JSON file
 let currentWordIndex = 0;
 let selectedLanguage = 'Korean'; // Ensure the case matches with the JSON file keys
+let isCorrectAnswer = false; // To track whether the answer is correct or not
 
 // Fetch JSON data from the server
 function loadJSON() {
     fetch('koreanvocab.json') // Ensure this path is correct relative to your project structure
         .then(response => response.json())
         .then(data => {
-            console.log(data); // Check if the data is structured as expected
             words = data.words;
+            shuffleWords(); // Shuffle words for random order
             displayWord(); // Display the first word once the data is loaded
         })
         .catch(error => {
             console.error('Error loading JSON:', error);
         });
+}
+
+// Function to shuffle the words array (Fisher-Yates Shuffle)
+function shuffleWords() {
+    for (let i = words.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [words[i], words[j]] = [words[j], words[i]];
+    }
 }
 
 // Update the word on the screen based on the selected language
@@ -66,9 +75,11 @@ function checkAnswer() {
         resultDiv.textContent = `You did it! English: ${currentWord.English}, Mongolian: ${currentWord.Mongolia}, Japanese: ${currentWord.Japanese}`;
         wrongDiv.textContent = '';
         nextBtn.style.display = 'block'; // Show next button
+        isCorrectAnswer = true; // Mark the answer as correct
     } else {
         wrongDiv.textContent = 'Try again!';
         resultDiv.textContent = '';
+        isCorrectAnswer = false; // Mark the answer as incorrect
     }
 }
 
@@ -80,6 +91,7 @@ function nextWord() {
     wrongDiv.textContent = '';
     answerInput.value = '';
     nextBtn.style.display = 'none';
+    isCorrectAnswer = false; // Reset the correct answer flag
 }
 
 // Event listeners
@@ -88,6 +100,17 @@ nextBtn.addEventListener('click', nextWord);
 questionLanguageSelect.addEventListener('change', (e) => {
     selectedLanguage = e.target.value; // Ensure selected language matches JSON keys' case
     displayWord();
+});
+
+// Add event listener for "Enter" key
+answerInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        if (!isCorrectAnswer) {
+            checkAnswer(); // Simulate submit if answer is not correct
+        } else {
+            nextWord(); // Simulate next button if the answer was correct
+        }
+    }
 });
 
 // Load the JSON data when the page loads
