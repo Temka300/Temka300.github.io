@@ -314,7 +314,7 @@
         },
         {
             "Korean": "영/공",
-            "English": 0,
+            "English": "zero",
             "Japanese": "ゼロ",
             "Kanji": "零(rei) / 〇(maru)",
             "Mongolia": "тэг",
@@ -322,7 +322,7 @@
         },
         {
             "Korean": "일",
-            "English": 1,
+            "English": "one",
             "Japanese": "いち",
             "Kanji": "一",
             "Mongolia": "нэг",
@@ -330,7 +330,7 @@
         },
         {
             "Korean": "이",
-            "English": 2,
+            "English": "two",
             "Japanese": "に",
             "Kanji": "ニ",
             "Mongolia": "хоёр",
@@ -338,7 +338,7 @@
         },
         {
             "Korean": "삼",
-            "English": 3,
+            "English": "three",
             "Japanese": "さん",
             "Kanji": "三",
             "Mongolia": "гурав",
@@ -346,7 +346,7 @@
         },
         {
             "Korean": "사",
-            "English": 4,
+            "English": "four",
             "Japanese": "よん/し",
             "Kanji": "四",
             "Mongolia": "дөрөв",
@@ -354,7 +354,7 @@
         },
         {
             "Korean": "오",
-            "English": 5,
+            "English": "five",
             "Japanese": "ご",
             "Kanji": "五",
             "Mongolia": "тав",
@@ -362,7 +362,7 @@
         },
         {
             "Korean": "육",
-            "English": 6,
+            "English": "six",
             "Japanese": "ろく",
             "Kanji": "六",
             "Mongolia": "зургаа",
@@ -370,7 +370,7 @@
         },
         {
             "Korean": "칠",
-            "English": 7,
+            "English": "seven",
             "Japanese": "なな/しち",
             "Kanji": "七",
             "Mongolia": "долоо",
@@ -378,7 +378,7 @@
         },
         {
             "Korean": "팔",
-            "English": 8,
+            "English": "eight",
             "Japanese": "はち",
             "Kanji": "八",
             "Mongolia": "найм",
@@ -386,7 +386,7 @@
         },
         {
             "Korean": "구",
-            "English": 9,
+            "English": "nine",
             "Japanese": "きゅ",
             "Kanji": "九",
             "Mongolia": "ес",
@@ -394,7 +394,7 @@
         },
         {
             "Korean": "십",
-            "English": 10,
+            "English": "ten",
             "Japanese": "じゅ",
             "Kanji": "十",
             "Mongolia": "арав",
@@ -402,7 +402,7 @@
         },
         {
             "Korean": "십일",
-            "English": 11,
+            "English": "eleven",
             "Japanese": "じゅいち",
             "Kanji": "十一",
             "Mongolia": "арван нэг",
@@ -410,7 +410,7 @@
         },
         {
             "Korean": "십이",
-            "English": 12,
+            "English": "twelve",
             "Japanese": "じゅに",
             "Kanji": "十六",
             "Mongolia": "арван хоёр",
@@ -418,7 +418,7 @@
         },
         {
             "Korean": "십삼",
-            "English": 13,
+            "English": "thirteen",
             "Japanese": "じゅさん",
             "Kanji": "十",
             "Mongolia": "арван гурав",
@@ -426,7 +426,7 @@
         },
         {
             "Korean": "십사",
-            "English": 14,
+            "English": "fourteen",
             "Japanese": "じゅよん",
             "Kanji": "十",
             "Mongolia": "арван дөрөв",
@@ -434,7 +434,7 @@
         },
         {
             "Korean": "십오",
-            "English": 15,
+            "English": "fifteen",
             "Japanese": "じゅご",
             "Kanji": "十",
             "Mongolia": "арван тав",
@@ -442,7 +442,7 @@
         },
         {
             "Korean": "십육",
-            "English": 16,
+            "English": "sixteen",
             "Japanese": "じゅろく",
             "Kanji": "十",
             "Mongolia": "арван зургаа",
@@ -450,7 +450,7 @@
         },
         {
             "Korean": "십칠",
-            "English": 17,
+            "English": "seventeen",
             "Japanese": "じゅなな",
             "Kanji": "十",
             "Mongolia": "арван долоо",
@@ -458,7 +458,7 @@
         },
         {
             "Korean": "십팔",
-            "English": 18,
+            "English": "eighteen",
             "Japanese": "じゅはち",
             "Kanji": "十",
             "Mongolia": "арван найм",
@@ -466,7 +466,7 @@
         },
         {
             "Korean": "십구",
-            "English": 19,
+            "English": "nineteen",
             "Japanese": "じゅきゅ",
             "Kanji": "十",
             "Mongolia": "арван ес",
@@ -474,7 +474,7 @@
         },
         {
             "Korean": "이십",
-            "English": 20,
+            "English": "twenty",
             "Japanese": "にじゅ",
             "Kanji": "十",
             "Mongolia": "хорь",
@@ -482,7 +482,7 @@
         },
         {
             "Korean": "삼십",
-            "English": 30,
+            "English": "thirty",
             "Japanese": "さんじゅ",
             "Kanji": "十",
             "Mongolia": "гуч",
@@ -490,7 +490,7 @@
         },
         {
             "Korean": "사십",
-            "English": 40,
+            "English": "forty",
             "Japanese": "よんじゅ",
             "Kanji": "十",
             "Mongolia": "дөч",
@@ -498,7 +498,7 @@
         },
         {
             "Korean": "오십",
-            "English": 50,
+            "English": "fifty",
             "Japanese": "ごじゅ",
             "Kanji": "十",
             "Mongolia": "тавь",
@@ -506,7 +506,7 @@
         },
         {
             "Korean": "육십",
-            "English": 60,
+            "English": "sixty",
             "Japanese": "ろくじゅ",
             "Kanji": "十",
             "Mongolia": "жарь",
@@ -514,7 +514,7 @@
         },
         {
             "Korean": "칠십",
-            "English": 70,
+            "English": "seventy",
             "Japanese": "ななじゅ",
             "Kanji": "十",
             "Mongolia": "дал",
@@ -522,7 +522,7 @@
         },
         {
             "Korean": "팔십",
-            "English": 80,
+            "English": "eighty",
             "Japanese": "はちじゅ",
             "Kanji": "十",
             "Mongolia": "ная",
@@ -530,7 +530,7 @@
         },
         {
             "Korean": "구십",
-            "English": 90,
+            "English": "ninety",
             "Japanese": "きゅじゅ",
             "Kanji": "九十",
             "Mongolia": "ер",
@@ -538,7 +538,7 @@
         },
         {
             "Korean": "백",
-            "English": 100,
+            "English": "hundred",
             "Japanese": "ひゃく",
             "Kanji": "百",
             "Mongolia": "зуу",
@@ -546,7 +546,7 @@
         },
         {
             "Korean": "천",
-            "English": 1000,
+            "English": "thousand",
             "Japanese": "せん",
             "Kanji": "千",
             "Mongolia": "мянга",
@@ -554,7 +554,7 @@
         },
         {
             "Korean": "만",
-            "English": 10000,
+            "English": "ten thousand",
             "Japanese": "いちまん",
             "Kanji": "一万",
             "Mongolia": "арван мянга",
@@ -562,7 +562,7 @@
         },
         {
             "Korean": "십만",
-            "English": 100000,
+            "English": "one hundred thousand",
             "Japanese": "じゅまん",
             "Kanji": "十万",
             "Mongolia": "зуун мянга",
@@ -570,7 +570,7 @@
         },
         {
             "Korean": "백만",
-            "English": 1000000,
+            "English": "million",
             "Japanese": "ひゃくまん",
             "Kanji": "百万",
             "Mongolia": "сая",
@@ -578,7 +578,7 @@
         },
         {
             "Korean": "천만",
-            "English": 10000000,
+            "English": "ten million",
             "Japanese": "いっせんまん",
             "Kanji": "千万",
             "Mongolia": "арван сая",
@@ -586,7 +586,7 @@
         },
         {
             "Korean": "억",
-            "English": 100000000,
+            "English": "one hundred million",
             "Japanese": "いちおく",
             "Kanji": "一億",
             "Mongolia": "зуун сая",
@@ -594,7 +594,7 @@
         },
         {
             "Korean": "영/공",
-            "English": 0,
+            "English": "zero",
             "Japanese": "ゼロ",
             "Kanji": "零(rei) / 〇(maru)",
             "Mongolia": "тэг",
@@ -1115,7 +1115,7 @@
         {
             "Korean": "먹다",
             "English": "Eat",
-            "Japanese": "---",
+            "Japanese": "동생",
             "Kanji": "---",
             "Mongolia": "Идэх",
             "Topic": "1A-4"
@@ -4906,7 +4906,7 @@
         },
         {
             "Korean": "자주 웃어요",
-            "English": "Smile often",
+            "English": "Always smile",
             "Japanese": "---",
             "Kanji": "---",
             "Mongolia": "Байнга инээмсэглэ",
@@ -5858,7 +5858,7 @@
         },
         {
             "Korean": "풍경 사진을 찍다",
-            "English": "Take a landscape photo",
+            "English": "악기를 연주하",
             "Japanese": "---",
             "Kanji": "---",
             "Mongolia": "Ландшафтын зураг авах",

@@ -127,14 +127,28 @@ function nextWord() {
     submitNextBtn.textContent = 'Submit';
 }
 
-// Handle button click (either check the answer or move to the next word)
+// Handle pressing "Enter" key on the answer input
+answerInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        handleSubmitNext();
+    }
+});
+
+// Handle clicking the button
 submitNextBtn.addEventListener('click', () => {
+    handleSubmitNext();
+});
+
+// Function to handle both "Enter" key and button click
+function handleSubmitNext() {
     if (submitNextBtn.textContent === 'Submit') {
         checkAnswer(); // If the button says 'Submit', check the answer
     } else if (submitNextBtn.textContent === 'Next') {
         nextWord(); // If the button says 'Next', load the next word
     }
-});
+}
+
+
 
 // Event listener for language selection change
 questionLanguageSelect.addEventListener('change', (e) => {
