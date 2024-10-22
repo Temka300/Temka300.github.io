@@ -13,7 +13,7 @@ let isCorrectAnswer = false; // To track whether the answer is correct or not
 
 // Fetch JSON data from the server
 function loadJSON() {
-    fetch('koreanvocab.json') // Ensure this path is correct relative to your project structure
+    fetch('koreanvocabv2.json') // Ensure this path is correct relative to your project structure
         .then(response => response.json())
         .then(data => {
             words = data.words;
