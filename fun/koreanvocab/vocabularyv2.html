@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Quiz</title>
+    <link rel="stylesheet" href="/portfolio/styles.css"> <!-- Linking to the same stylesheet for consistency -->
+    <link rel="stylesheet" href="vocabularyv2.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="/portfolio/image/logo.gif" alt="Logo">
+                <h1>Language Quiz</h1> <!-- Adjusted to fit the quiz context -->
+            </div>
+            <nav>
+                <a href="/index.html" class="active">Home</a>
+                <a href="/portfolio/projects.html">Projects</a>
+                <a href="/portfolio/posts.html">Posts</a>
+                <a href="/portfolio/portfolio.html">Portfolio</a>
+                <a href="/portfolio/fun.html">Fun</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section>
+            <h3>Select Topics:</h3>
+            <div id="topic-selection">
+                <label><input type="checkbox" value="1A-1" checked> 1A-1</label>
+                <label><input type="checkbox" value="1A-2" checked> 1A-2</label>
+                <label><input type="checkbox" value="1A-3" checked> 1A-3</label>
+                <label><input type="checkbox" value="1A-4" checked> 1A-4</label>
+                <label><input type="checkbox" value="1A-6" checked> 1A-6</label>
+                <label><input type="checkbox" value="1A-7" checked> 1A-7</label>
+                <label><input type="checkbox" value="1A-8" checked> 1A-8</label>
+                <label><input type="checkbox" value="1A-9" checked> 1A-9</label>
+                <label><input type="checkbox" value="1A-10" checked> 1A-10</label>
+                <label><input type="checkbox" value="1B-1" checked> 1B-1</label>
+                <label><input type="checkbox" value="1B-2" checked> 1B-2</label>
+                <label><input type="checkbox" value="1B-3" checked> 1B-3</label>
+                <label><input type="checkbox" value="1B-4" checked> 1B-4</label>
+                <label><input type="checkbox" value="1B-5" checked> 1B-5</label>
+                <label><input type="checkbox" value="1B-6" checked> 1B-6</label>
+                <label><input type="checkbox" value="1B-7" checked> 1B-7</label>
+                <label><input type="checkbox" value="1B-8" checked> 1B-8</label>
+                <label><input type="checkbox" value="1B-9" checked> 1B-9</label>
+                <label><input type="checkbox" value="1B-10" checked> 1B-10</label>
+                <label><input type="checkbox" value="1B-11" checked> 1B-11</label>
+                <label><input type="checkbox" value="1B-12" checked> 1B-12</label>
+                <label><input type="checkbox" value="2A-1" checked> 2A-1</label>
+                <label><input type="checkbox" value="2A-2" checked> 2A-2</label>
+                <label><input type="checkbox" value="2A-3" checked> 2A-3</label>
+                <label><input type="checkbox" value="2A-4" checked> 2A-4</label>
+                <label><input type="checkbox" value="2A-5" checked> 2A-5</label>
+                <label><input type="checkbox" value="2A-6" checked> 2A-6</label>
+                <label><input type="checkbox" value="2A-7" checked> 2A-7</label>
+                <label><input type="checkbox" value="2A-8" checked> 2A-8</label>
+                <label><input type="checkbox" value="2A-9" checked> 2A-9</label>
+                <label><input type="checkbox" value="2A-10" checked> 2A-10</label>
+                <label><input type="checkbox" value="2A-11" checked> 2A-11</label>
+            </div>
+        </section>
+
+        
+        <div class="score-counter">Score: <span id="score">0</span></div> <!-- Moved inside the container -->
+    
+        <section>
+            <h2>Language Quiz</h2>
+    
+            <label for="question-language">Select Question Language:</label>
+            <select id="question-language">
+                <option value="Korean">Korean</option>
+                <option value="English">English</option>
+                <option value="Mongolia">Mongolian</option>
+            </select>
+    
+            <div id="word-display">Word will appear here</div>
+    
+            <input type="text" id="answer-input" placeholder="Type your answer here" />
+            <button id="submit-btn">Submit</button>
+    
+            <div id="result"></div>
+            <div id="wrong"></div>
+    
+            <button id="next-btn">Next</button>
+        </section>
+    </div>
+    
+
+    <script src="vocabularyv2.js"></script>
+</body>
+</html>
